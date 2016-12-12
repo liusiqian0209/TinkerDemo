@@ -13,6 +13,7 @@ import com.tencent.tinker.anno.DefaultLifeCycle;
 import com.tencent.tinker.lib.tinker.TinkerInstaller;
 import com.tencent.tinker.loader.app.DefaultApplicationLike;
 import com.tencent.tinker.loader.shareutil.ShareConstants;
+import com.tencent.tinker.loader.shareutil.SharePatchFileUtil;
 
 /**
  * Créé par liusiqian 2016/12/7.
@@ -51,5 +52,13 @@ public class CustomApplication extends DefaultApplicationLike
         TinkerInstaller.install(this);
         //optional set logIml, or you can use default debug log
 
+    }
+
+    @Override
+    public void onCreate()
+    {
+        super.onCreate();
+        TinkerInstaller.onReceiveUpgradePatch(getApplication(), SharePatchFileUtil.getPatchDirectory(
+                getApplication()).getAbsolutePath() + "/patch_signed_7zip.apk");
     }
 }

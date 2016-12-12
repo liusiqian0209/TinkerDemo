@@ -35,6 +35,6 @@ public class SecondAcitivity extends Activity
 
     private void onClickBtnTest()
     {
-        Toast.makeText(this,"测试",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"补丁toast123",Toast.LENGTH_SHORT).show();
     }
 }
